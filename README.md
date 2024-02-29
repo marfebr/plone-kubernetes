@@ -1,4 +1,4 @@
-# Plonn em kuernetes com hpa
+# Plone 6 em kuernetes
 
   Plone 6 em kubernetes
   essa é a forma mais estavel que encontrei para rodar o plone 6 em kubernetes
@@ -6,7 +6,7 @@
 ## Pré-requisitos
 
  * ter um fqdn:
-   no caso estamos usando plone.hostlocal que foi defino no arquivo hosts da maquina local, mas emprodução deve ter uma entrada de DNS.
+   no caso estamos usando *plone.hostlocal* que foi defino no arquivo hosts da maquina local, mas em produção deve ter uma entrada de DNS.
  * Ter um cluster Kubernetes funcionando com o ingress NGINX[https://kubernetes.github.io/ingress-nginx/deploy/]
 
 
