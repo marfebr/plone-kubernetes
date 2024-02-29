@@ -15,13 +15,13 @@
   Os arquivos estão organizados da seguinte forma:
 
     1 - namespace.yaml: Cria o namespace para o projeto
-    2 - configmaps.yaml: Variaveis de configuração Não sensivéis - para dados sensiveis use secrets
+    2 - configmaps.yaml: Variaveis de configuração Não sensíveis - para dados sensíveis use secrets
     3 - deployment.yaml - Declaração do frontend e backend
     4 - ingress.yaml - Regras para ingress para aplicação
     5 - services.yaml - Serviços do frontend e backend
 
   
-  O namespace deve ser criado primeiro e na sequencia os demais
+  O namespace deve ser criado primeiro e na sequência os demais
 
   ```bash
 
