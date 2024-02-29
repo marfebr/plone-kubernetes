@@ -1,0 +1,49 @@
+# https://kubernetes.io/docs/concepts/services-networking/ingress/
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: frontend
+  namespace: plone-project
+  annotations:
+    nginx.ingress.kubernetes.io/upstream-vhost: plone.hostlocal
+    nginx.ingress.kubernetes.io/x-forwarded-prefix: "true"
+
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: plone.hostlocal
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend
+            port:
+              number: 3000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: backend
+  namespace: plone-project
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /VirtualHostBase/http/plone.hostlocal/Plone/++api++/VirtualHostRoot/$1
+    nginx.ingress.kubernetes.io/upstream-vhost: plone.hostlocal
+    nginx.ingress.kubernetes.io/use-regex: "true"
+
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: plone.hostlocal
+    http:
+      paths:
+      # - path: /..api../(.*)
+      - path: /\+\+api\+\+/(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: backend
+            port:
+              number: 8080
+---

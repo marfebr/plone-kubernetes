@@ -1,0 +1,14 @@
+# https://kubernetes.io/docs/concepts/configuration/configmap/
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: plone-conf
+  namespace: plone-project
+data:
+  RAZZLE_INTERNAL_API_PATH: http://backend:8080/Plone
+  RAZZLE_API_PATH: http://plone.hostlocal
+  DEBUG: superagent
+  SITE: Plone
+  BASE_URL: "plone.hostlocal"
+---
+
