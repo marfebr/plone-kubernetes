@@ -1,4 +1,4 @@
-# Plone 6 em kuernetes
+# Plone 6 em kubernetes
 
   Plone 6 em kubernetes
   essa é a forma mais estavel que encontrei para rodar o plone 6 em kubernetes
